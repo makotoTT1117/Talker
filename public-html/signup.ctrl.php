@@ -27,7 +27,7 @@
         if (!is_array($isAlreadySignedUp)) {
             $db_data = array($user_email, $hashed_user_password, 0);
             phpModifyDB('INSERT INTO users (user_email, user_password, user_verified) values (?, ?, ?)', $db_data);
-            $db_data = "";
+            $db_data = "";          
             $verify_message = '
 
             Welcome to Talker! Thanks for signing up!<br><br>

@@ -24,28 +24,28 @@ if (!is_array($isAlreadySignedUp)) {
 
 	//email not registered -> feedback message
 	$_SESSION["msgid"] = "807";
-    header['Location: index.php'];
+    header('Location: index.php');
 
 } else if ($isAlreadySignedUp["user_verified"] == 1 ) {
 
     //email registered, but already activated -> feedback message
     $_SESSION["msgid"] = "806";
-    header['Location: index.php'];
+    header('Location: index.php');
 
 } else if ($isAlreadySignedUp["user_verified"] == 0 && $isAlreadySignedUp["user_password"] == $verify_link_hash) {
 
     //email registered, but not activated -> set verified to 1 -> feedback message
-    echo "Let's activate!";
-    $db_data = array(1,$isAlreadySignedUp["user_email"]);
+    //echo "Let's activate!";
+    $db_data = array(1, $isAlreadySignedUp["user_email"]);
     phpModifyDB('UPDATE users SET user_verified = ? WHERE user_emial = ?', $db_data);
     $db_data = "";
     $_SESSION["msgid"] = "811";
-    header['Location: index.php'];
+    header('Location: index.php');
 } else {
 
     //hash doesn't match the password
     $_SESSION["msgid"] = "807";
-    header['Location: index.php'];
+    header('Location: index.php');
 }
 
 ?>
