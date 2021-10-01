@@ -107,7 +107,7 @@ if ($_SESSION["uid"]!="" || $_COOKIE["cookieUserEmail"]!="") {
     <?php
         //empty the msgid id only if no user is signed in
         if ($_SESSION["uid"]=="" || $_COOKIE["cookieUserEmail"]=="") {
-          $_SESSION["msgid"]="";
+            $_SESSION["msgid"]="";
         }
         $_SESSION["formSignUpEmail"]="";
     ?>

@@ -21,22 +21,22 @@
 
 		if (!is_array($dbUserRow)) { //even regex compliant attempt can result in nonexistent record
 			//echo "regex ok -> user does not exist -> wrong email or password -> feedback message";
-			$_SESSION["msgid"] = "";
+			$_SESSION["msgid"] = "808";
 			header('Location: index.php');
 
 		} else if (!password_verify($user_password, $dbUserRow["user_password"])) { //user OK, password WRONG
 
 			//echo "user ok, password wrong -> wrong email or password -> feedback message";
-			$_SESSION["msgid"] = "";
+			$_SESSION["msgid"] = "808";
 			header('Location: index.php');
 
-		} else if (password_verify($user_password, $dbUserRow["user_password"]) && $dbUserRow["user_verified"] != 1 ) { // user OK, password OK, not activated
+		/*} else if (password_verify($user_password, $dbUserRow["user_password"]) && $dbUserRow["user_verified"] != 1 ) { // user OK, password OK, not activated
 
 			//echo "user ok, password ok -> account has not been yet activated -> feedback message";
-			$_SESSION["msgid"] = "";
-			header('Location: index.php');
+			$_SESSION["msgid"] = "809";
+			header('Location: index.php');*/
 
-		} else if (password_verify($user_password, $dbUserRow["user_password"]) && $dbUserRow["user_verified"] == 1 ) { //user OK, password OK, activated
+		} else if (password_verify($user_password, $dbUserRow["user_password"])) { //user OK, password OK, activated //&& $dbUserRow["user_verified"] == 1 
 
 			//echo "user ok, password ok, activation ok -> allow user in the system -> feedback message";
 			$_SESSION["uid"] = $dbUserRow["user_id"];
