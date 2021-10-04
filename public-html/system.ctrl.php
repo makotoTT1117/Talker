@@ -19,12 +19,17 @@ function phpShowSystemFeedback($feedback_id) {
         $feedback_type="danger";
         $feedback_text="Password must be between 8 and 16 characters long, with at least one uppercase and lowercase character, one number and one special character (@, *, $ or #).";
         break;
-
-		case "803":
-		$feedback_type="danger";
-		$feedback_text="Passwords don't match";
+*/
+		case "211":
+		$feedback_type="success";
+		$feedback_text="Data updated successfully!";
 		break;
-        */
+
+        case "212":
+		$feedback_type="success";
+		$feedback_text="Data removed successfully!";
+		break;
+        
         case "804":
         $feedback_type="danger";
         $feedback_text="This email is already used!";

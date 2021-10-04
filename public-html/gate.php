@@ -93,12 +93,6 @@ session_start(); require('system.ctrl.php');
 		?>
 		<!-- LOAD MODULE -->
 
-		
-		<?php echo "User id is: " . $_SESSION["uid"];?>
-		<br>
-		<?php echo "cookieUserEmail" . $_COOKIE["cookieUserEmail"];?>
-		<br>
-		<?php echo "cookieUserPassword " . $_COOKIE["cookieUserPassword"];?>
 	</div>
 
 	<?php $_SESSION["msgid"]=""; $_SESSION["resend"] = 0; ?>
