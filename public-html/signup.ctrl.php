@@ -28,7 +28,7 @@
             $db_data = array($user_email, $hashed_user_password, 0, "", "", "");
             phpModifyDB('INSERT INTO users (user_email, user_password, user_verified, user_firstname, user_lastname, user_nickname) values (?, ?, ?, ?, ?, ?)', $db_data);
             $db_data = "";
-            phpSendVerificationEmail($user_email, $hashed_use r_password);          
+            phpSendVerificationEmail($user_email, $hashed_user_password);          
         }else{
             $_SESSION["msgid"] = "804";
         }
