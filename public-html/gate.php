@@ -54,15 +54,18 @@ session_start(); require('system.ctrl.php');
 		</button>
 		<div class="collapse navbar-collapse" id="navbarText">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item <?php if ($_GET['module']=='') {echo 'active';} ?>">
-					<a class="nav-link" href="gate.php">Home <?php if ($_GET['module']=='') {?> <span class="sr-only"> (current)</span><?php } ?></a>
+				<li class="nav-item <?php if ($_GET['module']=='home') {echo 'active';} ?>">
+					<a class="nav-link" href="gate.php?module=home">Home <?php if ($_GET['module']=='home') {?> <span class="sr-only"> (current)</span><?php } ?></a>
 				</li>
 				<li class="nav-item <?php if ($_GET['module']=='messaging') {echo 'active';} ?>">
 					<a class="nav-link" href="gate.php?module=messaging">Messaging<?php if ($_GET['module']=='messaging') {?> <span class="sr-only"> (current)</span><?php } ?></a>
-				<li>
+				</li>
+				<li class="nav-item <?php if ($_GET['module']=='groups') { echo 'active'; } ?>">
+					<a class="nav-link" href="gate.php?module=groups">Groups<?php if ($_GET['module']=='groups') { ?><span class="sr-only"> (current)</span><?php } ?></a>
+				</li>
 				<li class="nav-item <?php if ($_GET['module']=='settings') {echo 'active';} ?>">
 					<a class="nav-link" href="gate.php?module=settings">Settings<?php if ($_GET['module']=='settings') {?> <span class="sr-only"> (current)</span><?php } ?></a>
-				<li>
+				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="logout.ctrl.php">Logout</a>
 				</li>
@@ -98,6 +101,10 @@ session_start(); require('system.ctrl.php');
 		<!-- LOAD MODULE -->
 		<?php
 		switch ($_GET["module"]) {
+			case "home":
+			include('home.php');
+			break;
+
 			case "settings":
 			include('settings.php');
 			break;
@@ -108,6 +115,14 @@ session_start(); require('system.ctrl.php');
 
 			case "group":
 			include('group.php');
+			break;
+
+			case "groups":
+			include('groups.php');
+			break;
+
+			case "posts":
+			include('posts.php');
 			break;
 
 			default:
